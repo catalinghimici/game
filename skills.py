@@ -14,11 +14,12 @@ class Skill:
         self.current_cooldown = 0
 
     def can_use_skill(self):
-        return self.current_cooldown == 0 and random.random() <= self.chance
+        return random.random() <= self.chance #self.current_cooldown == 0 and 
 
     def skill_cooldown(func):
+        """Manages the cooldown period"""
         def wrapper(self, damage):
-            if not self.can_use_skill():
+            if self.current_cooldown:
                 print(f"{self.name} is on cooldown or cannot be used now.")
                 return damage
 
@@ -39,6 +40,11 @@ class CriticalStrike(Skill):
     STRIKES = 2
     CRIT_CHANCE = 0.1
     CRIT_STRIKES = 3
+    def __init__(self):
+        super().__init__(name="Critical strike",
+                       chance=0.1,
+                       skill_type=SkillType.ATTACK,
+                       cooldown=0)
 
     @Skill.skill_cooldown
     def perform_skill(self, damage):
@@ -54,6 +60,11 @@ class CriticalStrike(Skill):
 
 class Resilience(Skill):
     DAMAGE_REDUCTION_FACTOR = 0.5
+    def __init__(self):
+        super().__init__(name="Resilience",
+                       chance=0.2,
+                       skill_type=SkillType.DEFENSE,
+                       cooldown=2)
 
     @Skill.skill_cooldown
     def perform_skill(self, damage):
