@@ -1,0 +1,52 @@
+{
+    "character1": {
+      "name": "Hero",
+      "health": {
+        "min": 200,
+        "max": 300
+      },
+      "strength": {
+        "min": 70,
+        "max": 80
+      },
+      "defense": {
+        "min": 40,
+        "max": 45
+      },
+      "speed": {
+        "min": 40,
+        "max": 50
+      },
+      "luck": {
+        "min": 0.1,
+        "max": 0.3
+      },
+      "skills": ["Critical strike", "Resilience"]
+    },
+    "character2": {
+      "name": "Villain",
+      "health": {
+        "min": 200,
+        "max": 250
+      },
+      "strength": {
+        "min": 60,
+        "max": 90
+      },
+      "defense": {
+        "min": 40,
+        "max": 60
+      },
+      "speed": {
+        "min": 40,
+        "max": 60
+      },
+      "luck": {
+        "min": 0.25,
+        "max": 0.40
+      },
+      "skills": []
+    },
+    "number_of_rounds": 20
+  }
+  
